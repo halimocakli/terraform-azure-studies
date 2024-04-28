@@ -11,6 +11,21 @@ provider "azurerm" {
   features {}
 }
 
+variable "application_name" {
+  description = "The name of the application"
+  type        = string
+}
+
+variable "environment_name" {
+  description = "The name of environment"
+  type        = string
+}
+
+variable "country_code" {
+  description = "The country code (FR-US-TR-...)"
+  type        = string
+}
+
 resource "azurerm_resource_group" "rg" {
   name     = "RG-${local.resource_name}"
   location = "westeurope"
@@ -21,7 +36,7 @@ resource "azurerm_public_ip" "pip" {
   location            = "westeurope"
   resource_group_name = azurerm_resource_group.rg.name
   allocation_method   = "Dynamic"
-  domain_name_label   = "MyDomain"
+  domain_name_label   = "halimsdomain"
 }
 
 locals {
