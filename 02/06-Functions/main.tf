@@ -21,15 +21,23 @@ variable "environment" {
   type        = string
 }
 
+locals {
+  resource_name_nonconditional = upper(format("RG-%s-%s", var.app_name, var.environment))
+}
+
+locals {
+  resource_name_conditional = var.environment == "Production" ? upper(format("RG-%s-WITH-CONDITION", var.app_name)) : upper(format("RG-%s-%s-WITH-CONDITION", var.app_name, var.environment))
+}
+
 # Non-Conditional Resource Creation
 resource "azurerm_resource_group" "rg-app" {
-  name     = upper(format("RG-%s-%s", var.app_name, var.environment))
+  name     = local.resource_name_nonconditional
   location = "westeurope"
 }
 
 # Conditional Resource Creation
-resource "azurerm_resource_group" "rg-app" {
-  name     = var.environment == "Production" ? upper(format("RG-%s-WITH-CONDITION", var.app_name)) : upper(format("RG-%s-%s-WITH-CONDITION", var.app_name, var.environment))
+resource "azurerm_resource_group" "rg-app-conditional" {
+  name     = local.resource_name_conditional
   location = "westeurope"
 }
 
