@@ -1,3 +1,7 @@
+/*
+  If we have the choice using an implicit or explicit dependency, it's recommended to use an implicit dependency. 
+*/
+
 terraform {
   required_version = "~> 1.0"
   required_providers {
