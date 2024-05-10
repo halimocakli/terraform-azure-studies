@@ -21,6 +21,8 @@ resource "random_string" "random" {
   upper   = false
 }
 
+# "tags" ismi ile deklare ettiğimiz değişkeni aşağıdaki kaynak içerisinde kullanıyoruz.
+# "terraform apply" komutunu kullanarak kaynağın feature'larını inceleyebiliriz.
 resource "azurerm_resource_group" "rg-app" {
   name     = "${var.resource_group_name}-${var.environment}-${random_string.random.result}"
   location = var.location
@@ -36,6 +38,8 @@ resource "azurerm_service_plan" "plan-app" {
   sku_name            = "S1"
 }
 
+# "app_settings" ismi ile deklare ettiğimiz değişkeni aşağıdaki kaynak içerisinde kullanıyoruz.
+# "terraform apply" komutunu kullanarak kaynağın feature'larını inceleyebiliriz.
 resource "azurerm_linux_web_app" "app" {
   name                = "${var.app_name}-${var.environment}-${random_string.random.result}"
   location            = azurerm_resource_group.rg-app.location
