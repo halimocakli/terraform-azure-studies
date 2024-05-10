@@ -1,0 +1,85 @@
+In Terraform, for_each and count are both used to create multiple instances of a resource, but they serve different purposes and are used in different scenarios.
+
+Here’s when to use for_each instead of count:
+
+Unique Resource Instances: Use for_each when you need to create resources that are based on a map or a set of strings, where each resource 
+needs to be unique and identifiable. for_each allows you to associate each resource with a unique key from your input map or set.
+
+Resource Dependencies: If your resources have complex dependencies on one another or need to reference specific attributes of other resources, 
+for_each is more suitable. It allows you to reference the keys directly, making it clearer which resources are interdependent.
+
+Updates Without Re-creation: When you want to update a resource without affecting others, for_each is preferable. 
+With count, adding or removing items can cause Terraform to destroy and recreate resources because they are indexed numerically. 
+for_each avoids this by linking resources to their unique keys.
+
+Clearer Differences in Plan Output: The plan and apply output is clearer with for_each as it shows the key associated with each resource change, 
+whereas count only shows the index, which can be less intuitive.
+
+######################################################################################
+Here’s an example of using for_each:
+
+variable "virtual_machines" {
+  description = "A map of virtual machine names and their configurations"
+  type        = map(object({
+    name           = string
+    location       = string
+    vm_size        = string
+    admin_username = string
+    admin_password = string
+  }))
+  default     = {
+    "vm1" = {
+      name           = "vm1",
+      location       = "East US",
+      vm_size        = "Standard_DS1_v2",
+      admin_username = "adminuser",
+      admin_password = "AdminPassword123!"
+    },
+    "vm2" = {
+      name           = "vm2",
+      location       = "West Europe",
+      vm_size        = "Standard_DS1_v2",
+      admin_username = "adminuser",
+      admin_password = "AdminPassword123!"
+    }
+  }
+}
+
+resource "azurerm_virtual_machine" "example" {
+  for_each = var.virtual_machines
+
+  name              = each.value.name
+  location          = each.value.location
+  vm_size           = each.value.vm_size
+  admin_username    = each.value.admin_username
+  admin_password    = each.value.admin_password
+  resource_group_name = azurerm_resource_group.example[each.key].name
+  network_interface_ids = [azurerm_network_interface.example[each.key].id]
+
+  os_profile {
+    computer_name  = each.value.name
+    admin_username = each.value.admin_username
+    admin_password = each.value.admin_password
+  }
+
+  os_profile_linux_config {
+    disable_password_authentication = false
+  }
+
+  storage_os_disk {
+    name              = "myosdisk${each.key}"
+    caching           = "ReadWrite"
+    create_option     = "FromImage"
+    managed_disk_type = "Standard_LRS"
+  }
+
+  storage_image_reference {
+    publisher = "Canonical"
+    offer     = "UbuntuServer"
+    sku       = "16.04-LTS"
+    version   = "latest"
+  }
+}
+######################################################################################
+
+Remember, count is still useful when you simply need a certain number of identical resources and don’t need them to be individually addressable.
