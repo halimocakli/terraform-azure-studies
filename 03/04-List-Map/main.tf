@@ -39,8 +39,10 @@ resource "azurerm_service_plan" "plan-app" {
 }
 
 resource "azurerm_linux_web_app" "app" {
-  for_each            = var.web_apps
-  name                = each.value["name"]
+  # for_each: A meta-argument that accepts a map or a set of strings, and creates an instance for each item in that map or set.
+  for_each = var.web_apps
+  name     = each.value["name"]
+  # lookup retrieves the value of a single element from a map, given its key. If the given key does not exist, the given default value is returned instead.
   location            = lookup(each.value, "location", "westeurope")
   resource_group_name = azurerm_resource_group.rg-app.name
   service_plan_id     = azurerm_service_plan.plan-app.id
