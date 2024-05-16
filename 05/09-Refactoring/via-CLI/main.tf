@@ -33,6 +33,8 @@ resource "azurerm_virtual_network" "vnet" {
   ifadeleri CLI üzerinden girilir. Bu sayede hali hazırda var olan kaynaklar silinmeden script-2'de gerçekleştirilmek
   istenen refactoring işlemi tamamlanmış olur. Refactoring işleminin ardından Script-2 yorum satırından çıkarılır ve 
   Script-1 yorum satırına alınır.
+
+  Bu işlemlerin tıpatıp aynısını Moved Block ile de yapabiliriz. İkinci kısımda inceleyiniz.
 */
 
 ### Script - 1
