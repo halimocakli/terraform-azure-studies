@@ -17,7 +17,7 @@ resource "azurerm_resource_group" "rg-app" {
 }
 
 module "webapp" {
-  source                = "../Modules/webapp"
+  source                = "../WebAppModule"
   service_plan_name     = "spmyapp"
   app_name              = "halimsappdemo"
   location              = azurerm_resource_group.rg-app.location
