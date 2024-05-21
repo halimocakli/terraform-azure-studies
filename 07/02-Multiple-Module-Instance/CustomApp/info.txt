@@ -1,0 +1,3 @@
+Update legacy modules to follow current best practices by removing internal provider configurations and passing providers from 
+the root module. Modules with their own provider configurations are incompatible with for_each, count, and depends_on, 
+as Terraform cannot manage dependencies and resource instances safely under these conditions.
