@@ -1,0 +1,10 @@
+Command order:
+
+- terraform init -backend=false
+- terraform console
+    - local.linux_web_app
+    - local.windows_web_app
+    - merge(local.default_app_settings, var.custom_app_settings)
+
+In Step - 1, we run the command "terraform init -backend=false" to initialize the terraform context without using the backend,
+because our goal now is not to apply changes but just to evaluate an expression in the Terraform configurations.
