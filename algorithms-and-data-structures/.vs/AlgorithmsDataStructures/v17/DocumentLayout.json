@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\hocakli\\Github-Halim\\algorithms-and-data-structures\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{DF82DEBB-DA33-40E7-A82E-2A5712DED4DE}|Apps\\Apps.csproj|c:\\users\\hocakli\\github-halim\\algorithms-and-data-structures\\apps\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DF82DEBB-DA33-40E7-A82E-2A5712DED4DE}|Apps\\Apps.csproj|solutionrelative:apps\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DB4E628-E79B-47AA-BAC1-F43687D79D48}|DataStructures\\DataStructures.csproj|c:\\users\\hocakli\\github-halim\\algorithms-and-data-structures\\datastructures\\genericarray\\array.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4DB4E628-E79B-47AA-BAC1-F43687D79D48}|DataStructures\\DataStructures.csproj|solutionrelative:datastructures\\genericarray\\array.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\hocakli\\Github-Halim\\algorithms-and-data-structures\\Apps\\Program.cs",
+              "RelativeDocumentMoniker": "Apps\\Program.cs",
+              "ToolTip": "C:\\Users\\hocakli\\Github-Halim\\algorithms-and-data-structures\\Apps\\Program.cs",
+              "RelativeToolTip": "Apps\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-03T08:39:03.286Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Array.cs",
+              "DocumentMoniker": "C:\\Users\\hocakli\\Github-Halim\\algorithms-and-data-structures\\DataStructures\\GenericArray\\Array.cs",
+              "RelativeDocumentMoniker": "DataStructures\\GenericArray\\Array.cs",
+              "ToolTip": "C:\\Users\\hocakli\\Github-Halim\\algorithms-and-data-structures\\DataStructures\\GenericArray\\Array.cs",
+              "RelativeToolTip": "DataStructures\\GenericArray\\Array.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-03T08:38:38.971Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
