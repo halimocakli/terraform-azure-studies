@@ -62,14 +62,14 @@ resource "azurerm_linux_virtual_machine" "myLinuxVm" {
     destination = "/tmp"
   }
 
-
   # Enable this during Step-05-01 Test-1
   # File Provisioner-5: Copies the file-copy.html file to /var/www/html/file-copy.html where "azureuser" don't have permission to copy
   # This provisioner will fail but we don't want to taint the resource, we want to continue on_failure
   provisioner "file" {
     source      = "apps/file-copy.html"
     destination = "/var/www/html/file-copy.html"
-    on_failure  = continue # Enable this during Step-05-01 Test-2
+    on_failure  = fail
+    # on_failure  = continue # Enable this during Step-05-01 Test-2
   }
 
 }
