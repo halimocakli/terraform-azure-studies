@@ -1,6 +1,6 @@
 location                          = "eastus"
-resource_group_name               = "myRg"
-storage_account_name              = "staticwebsite"
+resource_group_name               = "myRg-sw-1"
+storage_account_name              = "hlmstaticwebsite1"
 storage_account_tier              = "Standard"
 storage_account_replication_type  = "LRS"
 storage_account_kind              = "StorageV2"
