@@ -71,6 +71,5 @@ resource "azurerm_linux_virtual_machine" "myLinuxVm" {
     on_failure  = fail
     # on_failure  = continue # Enable this during Step-05-01 Test-2
   }
-
 }
 
