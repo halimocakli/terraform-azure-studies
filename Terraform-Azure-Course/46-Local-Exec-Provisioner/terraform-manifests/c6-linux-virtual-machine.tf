@@ -30,13 +30,15 @@ resource "azurerm_linux_virtual_machine" "myLinuxVm" {
   tags        = local.common_tags
 
   provisioner "local-exec" {
-    command     = "echo ${azurerm_linux_virtual_machine.myLinuxVm.public_ip_address} >> creation-time-record.txt"
+    command     = "Write-Output \"Creation Time - $(Get-Date): VM IP: ${azurerm_linux_virtual_machine.myLinuxVm.public_ip_address}\" >> vm-ip-creation-time-record.txt"
+    interpreter = ["PowerShell", "-Command"]
     working_dir = "local-exec-output-files/"
   }
 
   provisioner "local-exec" {
     when        = destroy
-    command     = "echo Destroy-time provisioner Instanace Destroyed at `date` >> destroy-time-record.txt"
+    command     = "Write-Output \"Destroy-time provisioner Instance Destroyed at $(Get-Date)\" >> destroy-time-record.txt"
+    interpreter = ["PowerShell", "-Command"]
     working_dir = "local-exec-output-files/"
   }
 }
