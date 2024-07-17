@@ -1,0 +1,3 @@
+ssh-keygen     -m PEM     -t rsa     -b 4096     -C "azureuser@myserver"     -f terraform-azure.pem
+sudo mv terraform-azure.pem.pub terraform-azure.pub
+chmod 400 terraform-azure.pem
