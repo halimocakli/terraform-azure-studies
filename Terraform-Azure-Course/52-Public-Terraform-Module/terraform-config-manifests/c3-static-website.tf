@@ -1,7 +1,7 @@
 # Bu aşamada lokal modülü çağıracağız
 module "azure_static_website" {
   source  = "halimocakli/static-website/azurerm"
-  version = "1.0.0"
+  version = "2.0.0"
 
   location                          = var.location
   resource_group_name               = var.resource_group_name
@@ -14,9 +14,12 @@ module "azure_static_website" {
 
   storage_blob_index_document_name   = var.storage_blob_index_document_name
   storage_blob_error_document_name   = var.storage_blob_error_document_name
-  storage_blob_container_name        = var.storage_blob_container_name
-  storage_blob_type                  = var.storage_blob_type
-  storage_blob_content_type          = var.storage_blob_content_type
+  storage_blob_container_name_index  = var.storage_blob_container_name_index
+  storage_blob_type_index            = var.storage_blob_type_index
+  storage_blob_content_type_index    = var.storage_blob_content_type_index
+  storage_blob_container_name_error  = var.storage_blob_container_name_error
+  storage_blob_type_error            = var.storage_blob_type_error
+  storage_blob_content_type_error    = var.storage_blob_content_type_error
   storage_blob_index_document_source = var.storage_blob_index_document_source
   storage_blob_error_document_source = var.storage_blob_error_document_source
 }

@@ -39,16 +39,28 @@ variable "storage_blob_error_document_name" {
   description = "static website error 404 document_name"
   type        = string
 }
-variable "storage_blob_container_name" {
-  description = "Storage blob container name"
+variable "storage_blob_container_name_index" {
+  description = "Storage blob container namefor index file"
   type        = string
 }
-variable "storage_blob_type" {
-  description = "Storage blob type"
+variable "storage_blob_container_name_error" {
+  description = "Storage blob container name for error file"
   type        = string
 }
-variable "storage_blob_content_type" {
-  description = "Storage blob content type"
+variable "storage_blob_type_index" {
+  description = "Storage blob type for index file"
+  type        = string
+}
+variable "storage_blob_type_error" {
+  description = "Storage blob type for error file"
+  type        = string
+}
+variable "storage_blob_content_type_index" {
+  description = "Storage blob content type for index file"
+  type        = string
+}
+variable "storage_blob_content_type_error" {
+  description = "Storage blob content type for error file"
   type        = string
 }
 variable "storage_blob_index_document_source" {
