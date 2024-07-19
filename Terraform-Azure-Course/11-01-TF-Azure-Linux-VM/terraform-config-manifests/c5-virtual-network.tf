@@ -20,7 +20,7 @@ resource "azurerm_public_ip" "myPublicIp" {
   resource_group_name = azurerm_resource_group.myRg.name
   location            = azurerm_resource_group.myRg.location
   allocation_method   = "Static"
-  domain_name_label   = "halims-app-vm-${random_string.myRandom.id}"
+  domain_name_label   = "halims-app-vm-${random_string.myRandomString.id}"
   tags = {
     environment = "Dev"
   }
