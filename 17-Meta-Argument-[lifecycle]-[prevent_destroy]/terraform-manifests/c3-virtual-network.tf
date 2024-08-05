@@ -1,4 +1,4 @@
-# "prevent_destroy = true" ifadesi ilgili kaynağın destroy edilmesini engeller
+# "prevent_destroy = true" ifadesi ilgili kaynağın destroy edilmemesini engeller
 # Create Virtual Network
 resource "azurerm_virtual_network" "myVnet" {
   # name              = "myvnet-2"
