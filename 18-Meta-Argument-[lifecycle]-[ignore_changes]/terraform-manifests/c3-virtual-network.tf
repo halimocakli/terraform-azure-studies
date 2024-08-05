@@ -17,6 +17,7 @@ resource "azurerm_virtual_network" "myVnet" {
   tags = {
     "Name"        = "VNET-1"
     "Environment" = "DEV1"
+    "Project"     = "Lifecycle"
   }
 
   # Lifecycle Changes
